@@ -230,3 +230,14 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+/.idea/.idea.startapp/.idea/.gitignore
+/.idea/.idea.startapp/.idea/.name
+/.idea/codeStyles/codeStyleConfig.xml
+/.idea/.idea.startapp/.idea/encodings.xml
+/.idea/grocerylist.iml
+/.idea/.idea.startapp/.idea/indexLayout.xml
+/.idea/modules.xml
+/.idea/.idea.startapp/.idea/riderModule.iml
+/.idea/.idea.startapp/.idea/vcs.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
