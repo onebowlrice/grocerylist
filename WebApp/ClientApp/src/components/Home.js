@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { LoginMenu } from './api-authorization/LoginMenu';
 import "./Home.css";
 import { ApplicationPaths } from './api-authorization/ApiAuthorizationConstants';
 
@@ -10,7 +9,7 @@ export class Home extends Component {
     super(props);
 
     this.state = {
-      isAuthenticated: LoginMenu.isAuthenticated
+      isAuthenticated: props.isAuthenticated
     };
   }
 
