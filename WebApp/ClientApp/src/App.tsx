@@ -7,6 +7,7 @@ import { Counter } from "./components/Counter";
 import AuthorizeRoute from "./components/api-authorization/AuthorizeRoute";
 import ApiAuthorizationRoutes from "./components/api-authorization/ApiAuthorizationRoutes";
 import { ApplicationPaths } from "./components/api-authorization/ApiAuthorizationConstants";
+import {Cart} from "./components/Cart.js"
 
 import "./custom.css";
 
@@ -23,6 +24,7 @@ export default class App extends Component {
           path={ApplicationPaths.ApiAuthorizationPrefix}
           component={ApiAuthorizationRoutes}
         />
+        <Route path="/cart" component={Cart}/>
       </Layout>
     );
   }
