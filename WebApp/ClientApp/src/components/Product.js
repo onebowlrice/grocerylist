@@ -9,7 +9,7 @@ export class Product extends Component {
         super(props);
 
         this.state = {
-            name: "Название корзины",
+            name: "Название продукта",
             mediumCost:"0"
         };
     }
