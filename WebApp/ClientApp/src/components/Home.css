@@ -1,12 +1,4 @@
-.mainDiv{
-    background-color: lightgray;
-    width: 50%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.userPic{
-    width: 30%;
-    height: auto;
+.main{
+    width: 400px;
+    height: 400px;
 }
