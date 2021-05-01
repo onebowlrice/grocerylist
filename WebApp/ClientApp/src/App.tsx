@@ -9,6 +9,9 @@ import ApiAuthorizationRoutes from "./components/api-authorization/ApiAuthorizat
 import { ApplicationPaths } from "./components/api-authorization/ApiAuthorizationConstants";
 
 import "./custom.css";
+import { Product } from "./components/Product";
+import { AddProduct } from "./components/AddProduct";
+import { CartDescription } from "./components/CartDesctiption";
 
 export default class App extends Component {
   static displayName = App.name;
@@ -23,6 +26,7 @@ export default class App extends Component {
           path={ApplicationPaths.ApiAuthorizationPrefix}
           component={ApiAuthorizationRoutes}
         />
+        <Route path="/test" component={CartDescription}/>
       </Layout>
     );
   }
