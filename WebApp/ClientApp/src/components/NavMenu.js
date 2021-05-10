@@ -7,7 +7,7 @@ import logo from '../Data/logo.png'
 
 const NavMenu = () =>{
 
-  const [collapsed, setCollapsed] = useState(true)
+  const [collapsed, setCollapsed] = useState(true);
 
   const toggleNavbar = () =>{
     setCollapsed(!collapsed);
@@ -28,4 +28,4 @@ const NavMenu = () =>{
       </header>
     );
   }
-
+export default NavMenu;

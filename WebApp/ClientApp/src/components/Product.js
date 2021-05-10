@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { LoginMenu } from './api-authorization/LoginMenu';
 import "./Product.css";
 import { ApplicationPaths } from './api-authorization/ApiAuthorizationConstants';
@@ -8,39 +8,27 @@ import {
 } from 'reactstrap';
 import image from "../Data/318x180.svg"
 
-export class Product extends Component {
+const Product = () => {
 
-    constructor(props) {
-        super(props);
+    const [name,setName] = useState("Название продуката");
+    const [mediumCost,setMediumCost] = useState(0);
+    const [isOpen,setIsOpen] = useState(false);
+    const [shops,setShops] = useState([]);
 
-        this.state = {
-            name: "Название продукта",
-            mediumCost: "0",
-            isOpen: false,
-            shops: ["shop1", "shop2"],
-        };
-    }
-
-    
-
-
-    render() {
-        const toggle = () => this.setState({
-            isOpen: !this.state.isOpen
-        })
+        const toggle = () => setIsOpen(!isOpen);
 
         return (
             <div className="product">
                 <Card>
                     <CardImg top width="10%" src={image} alt="Card image cap" />
                     <CardBody>
-                        <CardTitle tag="h5">{this.state.name}</CardTitle>
-                        <CardSubtitle tag="h6" className="mb-2 text-muted">Средняя цена {this.state.mediumCost}</CardSubtitle>
+                        <CardTitle tag="h5">{name}</CardTitle>
+                        <CardSubtitle tag="h6" className="mb-2 text-muted">Средняя цена {mediumCost}</CardSubtitle>
                         <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>Подробнее</Button>
-                        <Collapse isOpen={this.state.isOpen}>
+                        <Collapse isOpen={isOpen}>
                             <Card>
                                 <p>Список магазинов:</p>
-                                {this.state.shops.map(x => <p>{x}</p>)}
+                                {shops.map(x => <p>{x}</p>)}
                             </Card>
                         </Collapse>
                     </CardBody>
@@ -48,4 +36,4 @@ export class Product extends Component {
             </div>
         )
     }
-}
+export default Product;
