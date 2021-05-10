@@ -27,7 +27,10 @@ namespace WebApp.Controllers
         [HttpPost]
         public User AddUser([FromQuery] string name, [FromQuery] string imgSource)
         {
-            return _userRepository.Insert(new User() {Name = name, ImgSource = imgSource});
+            if (User.Identity != null)
+                return _userRepository.Insert(new User()
+                    {Name = name, UserIdentity = User.Identity.Name, ImgSource = imgSource});
+            return null;
         }
 
         [HttpGet]
