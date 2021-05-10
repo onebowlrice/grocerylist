@@ -21,6 +21,7 @@ namespace WebApp.Repositories
             if (_context.Baskets.FirstOrDefault(b => b.Name.Equals(basket.Name)) is not null)
                 return null;
             _context.Baskets.Add(basket);
+            _context.SaveChanges();
             return _context.Baskets.FirstOrDefault(b => b.Name.Equals(basket.Name));
         }
 
@@ -43,6 +44,7 @@ namespace WebApp.Repositories
                 return;
             _context.BasketsAndProducts.Add(new BasketAndProduct()
                 {BasketId = id, MeasureId = measureId, Count = count, ProductId = productId});
+            _context.SaveChanges();
         }
     }
 }

@@ -24,6 +24,7 @@ namespace WebApp.Repositories
             if (_context.Products.FirstOrDefault(m => m.Name.Equals(product.Name)) is not null)
                 return null;
             _context.Products.Add(product);
+            _context.SaveChanges();
             return _context.Products.FirstOrDefault(m => m.Name.Equals(product.Name));
         }
 

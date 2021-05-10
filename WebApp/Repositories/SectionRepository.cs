@@ -25,6 +25,7 @@ namespace WebApp.Repositories
         {
             if (_context.Sections.FirstOrDefault(m => m.Name.Equals(section.Name)) is not null)
                 return null;
+            _context.SaveChanges();
             _context.Sections.Add(section);
             return _context.Sections.FirstOrDefault(m => m.Name.Equals(section.Name));
         }
@@ -39,6 +40,7 @@ namespace WebApp.Repositories
         {
             _context.SectionsAndSubsections.Add(new SectionAndSubsection()
                 {SectionId = sectionId, SubsectionId = subSectionId});
+            _context.SaveChanges();
         }
 
         public List<Section> GetSections()

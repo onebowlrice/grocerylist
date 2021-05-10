@@ -21,6 +21,7 @@ namespace WebApp.Repositories
         public User Insert(User user)
         {
             _context.Users.Add(user);
+            _context.SaveChanges();
             return _context.Users.FirstOrDefault(user => user.Name.Equals(user.Name));
         }
 
@@ -33,6 +34,7 @@ namespace WebApp.Repositories
         public void AddBasket(int userId, int basketId)
         {
             _context.BasketsAndUsers.Add(new BasketAndUser() {BasketId = basketId, Id = userId});
+            _context.SaveChanges();
         }
     }
 }

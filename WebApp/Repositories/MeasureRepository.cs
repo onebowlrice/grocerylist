@@ -24,6 +24,7 @@ namespace WebApp.Repositories
             if (_context.Measures.FirstOrDefault(m => m.Name.Equals(measure.Name)) is not null)
                 return null;
             _context.Measures.Add(measure);
+            _context.SaveChanges();
             return _context.Measures.FirstOrDefault(m => m.Name.Equals(measure.Name));
         }
 

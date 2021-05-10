@@ -23,6 +23,7 @@ namespace WebApp.Repositories
             if (_context.Subsections.FirstOrDefault(m => m.Name.Equals(name.Name)) is not null)
                 return null;
             _context.Subsections.Add(name);
+            _context.SaveChanges();
             return _context.Subsections.FirstOrDefault(m => m.Name.Equals(name.Name));
         }
     }
