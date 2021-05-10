@@ -4,8 +4,8 @@ namespace WebApp.Models.Links
 {
     public class BasketAndUser
     {
-        public Guid Id { get; set; }
-        public Guid UserId { get; set; }
-        public Guid BasketId { get; set; }
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public int BasketId { get; set; }
     }
 }

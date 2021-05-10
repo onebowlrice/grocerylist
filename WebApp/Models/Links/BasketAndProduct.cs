@@ -4,8 +4,10 @@ namespace WebApp.Models.Links
 {
     public class BasketAndProduct
     {
-        public Guid Id { get; set; }
-        public Guid BasketId { get; set; }
-        public Guid ProductId { get; set; }
+        public int Id { get; set; }
+        public int BasketId { get; set; }
+        public int ProductId { get; set; }
+        public int MeasureId { get; set; }
+        public int Count { get; set; }
     }
 }

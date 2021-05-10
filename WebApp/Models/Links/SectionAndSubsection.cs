@@ -4,8 +4,8 @@ namespace WebApp.Models.Links
 {
     public class SectionAndSubsection
     {
-        public Guid Id { get; set; }
-        public Guid SectionId { get; set; }
-        public Guid SubsectionId { get; set; }
+        public int Id { get; set; }
+        public int SectionId { get; set; }
+        public int SubsectionId { get; set; }
     }
 }
