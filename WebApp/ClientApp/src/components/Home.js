@@ -5,25 +5,11 @@ import { Card, CardImg, CardBody, CardTitle } from 'reactstrap'
 import user from '../Data/user.svg'
 import cart from '../Data/cart.svg'
 
-export class Home extends Component {
-  static displayName = Home.name;
+const Home = (props) => {
 
-  constructor(props) {
-    super(props);
+  const [isAuthenticated,setIsAuthenticated] = (props.isAuth)
 
-    this.state = {
-      isAuthenticated: props.isAuthenticated
-    };
-  }
-
-  render() {
-    const { isAuthenticated } = this.state;
-    if (isAuthenticated)
-      return this.authenticatedView();
-    else return this.notAuthenticatedView();
-  }
-
-  authenticatedView() {
+  if (isAuthenticated)
     return (
       <div className="main">
         <a href={ApplicationPaths.Cart}>
@@ -36,10 +22,7 @@ export class Home extends Component {
         </a>
       </div>
     );
-  }
-
-  notAuthenticatedView() {
-    return (
+    else return (
       <div className="main">
         <a href={ApplicationPaths.Register}>
           <Card>
@@ -52,4 +35,4 @@ export class Home extends Component {
       </div>
     )
   }
-}
+export default Home;
