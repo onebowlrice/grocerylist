@@ -1,4 +1,6 @@
-﻿using WebApp.Models;
+﻿using System;
+using System.Collections.Generic;
+using WebApp.Models;
 using IdentityServer4.EntityFramework.Options;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +12,7 @@ namespace WebApp.Data
 {
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
+        public DbSet<User> Users { get; set; }
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<Measure> Measures { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -26,6 +29,32 @@ namespace WebApp.Data
             DbContextOptions options,
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            var classes = new List<Type>()
+            {
+                typeof(User),
+                typeof(Basket),
+                typeof(Measure),
+                typeof(Product),
+                typeof(Section),
+                typeof(Subsection),
+                typeof(BasketAndProduct),
+                typeof(BasketAndUser),
+                typeof(SectionAndSubsection),
+                typeof(ShopAndProduct),
+            };
+            
+            foreach (var name in classes)
+            {
+                builder.Entity(name)
+                    .Property(typeof(int),"Id")
+                    .ValueGeneratedOnAdd();
+            }
+            
+            base.OnModelCreating(builder);
         }
     }
 }
