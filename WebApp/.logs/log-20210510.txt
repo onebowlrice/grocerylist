@@ -1,0 +1,6 @@
+{"@t":"2021-05-10T10:59:55.2548910Z","@m":"Running web host","@i":"ae4d1e0d"}
+{"@t":"2021-05-10T10:59:55.3633353Z","@m":"Starting IdentityServer4 version \"4.1.0+5a4433f83e8c6fca7d8979141fa5a92684ad56f6\"","@i":"8add0571","version":"4.1.0+5a4433f83e8c6fca7d8979141fa5a92684ad56f6","SourceContext":"IdentityServer4.Startup"}
+{"@t":"2021-05-10T10:59:55.6833071Z","@m":"Using explicitly configured authentication scheme \"Identity.Application\" for IdentityServer","@i":"046a3520","scheme":"Identity.Application","SourceContext":"IdentityServer4.Startup"}
+{"@t":"2021-05-10T11:01:37.2903262Z","@m":"Running web host","@i":"ae4d1e0d"}
+{"@t":"2021-05-10T11:01:37.3676239Z","@m":"Starting IdentityServer4 version \"4.1.0+5a4433f83e8c6fca7d8979141fa5a92684ad56f6\"","@i":"8add0571","version":"4.1.0+5a4433f83e8c6fca7d8979141fa5a92684ad56f6","SourceContext":"IdentityServer4.Startup"}
+{"@t":"2021-05-10T11:01:37.5077440Z","@m":"Using explicitly configured authentication scheme \"Identity.Application\" for IdentityServer","@i":"046a3520","scheme":"Identity.Application","SourceContext":"IdentityServer4.Startup"}
