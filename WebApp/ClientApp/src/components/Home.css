@@ -1,4 +1,22 @@
-.main{
-    width: 400px;
-    height: 400px;
+.listContainer {
+  border: 2px solid rgb(97, 94, 94);
+  display: flexbox;
+}
+.listName {
+  margin: 10vw;
+}
+.element {
+  width: 80%;
+  height: 5vh;
+  display: flexbox;
+  border: 2px solid rgb(97, 94, 94);
+  padding: 0 5px;
+  text-align: center;
+  margin: auto;
+}
+.eName {
+  float: left;
+}
+.eCost {
+  float: right;
 }

@@ -4,12 +4,15 @@ import "./CartDescription.css";
 import { ApplicationPaths } from './api-authorization/ApiAuthorizationConstants';
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap'
 import cart from '../Data/cart.svg'
+import Product from './Product';
+import { useHistory } from 'react-router';
 
 const CartDescription = () =>{
-
+const history = useHistory();
 const [cartName,setCartName] = useState("Название корзины"); 
 
         return (
+            <div className='cartMain'>
             <div className="info">
                 <Card>
                     <CardTitle tag="h5">{cartName}</CardTitle>
@@ -22,6 +25,20 @@ const [cartName,setCartName] = useState("Название корзины");
                         <Button type="button" class="btn btn-primary">Поделиться</Button>
                     </CardBody>
                 </Card>
+            </div>
+            <div className='cardsField'>
+                <Product />
+                <Product />
+                <Product />
+                <Product />
+                <Product />
+                <Product />
+                <Product />
+                <div className='product' onClick={() => history.push('/addproduct')}>
+                    <span>Плюс</span><br/>
+                    <span>Добавить товар</span>
+                </div>
+            </div>
             </div>
         );
     }

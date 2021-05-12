@@ -1,3 +1,0 @@
-{"@t":"2021-05-12T05:50:09.7787489Z","@m":"Running web host","@i":"ae4d1e0d"}
-{"@t":"2021-05-12T05:50:09.8623168Z","@m":"Starting IdentityServer4 version \"4.1.0+5a4433f83e8c6fca7d8979141fa5a92684ad56f6\"","@i":"8add0571","version":"4.1.0+5a4433f83e8c6fca7d8979141fa5a92684ad56f6","SourceContext":"IdentityServer4.Startup"}
-{"@t":"2021-05-12T05:50:10.4293433Z","@m":"Using explicitly configured authentication scheme \"Identity.Application\" for IdentityServer","@i":"046a3520","scheme":"Identity.Application","SourceContext":"IdentityServer4.Startup"}
