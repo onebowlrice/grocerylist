@@ -1,0 +1,16 @@
+.FormDiv {
+  margin: 10vh auto;
+  width: 40%;
+  display: flexbox;
+}
+.regBtn {
+  width: 40%;
+  margin: 10px 30%;
+  font-size: 1vw;
+}
+.alrdyRegText {
+  text-align: center;
+}
+.FormDiv h2 {
+  text-align: center;
+}

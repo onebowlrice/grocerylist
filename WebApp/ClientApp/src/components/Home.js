@@ -5,11 +5,9 @@ import { Card, CardImg, CardBody, CardTitle } from 'reactstrap'
 import user from '../Data/user.svg'
 import cart from '../Data/cart.svg'
 
-const Home = (props) => {
+const Home = () => {
 
-  const [isAuthenticated,setIsAuthenticated] = (props.isAuth)
-
-  if (isAuthenticated)
+  if (true)
     return (
       <div className="main">
         <a href={ApplicationPaths.Cart}>

@@ -12,7 +12,7 @@ const [cartName,setCartName] = useState("Название корзины");
         return (
             <div className="info">
                 <Card>
-                    <CardTitle tag="h5">{CartName}</CardTitle>
+                    <CardTitle tag="h5">{cartName}</CardTitle>
                     <CardImg top width="100%" src={cart} alt="Card image cap" />
                     <CardBody>
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Общая средняя стоимость </CardSubtitle>
