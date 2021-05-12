@@ -11,21 +11,27 @@ import "./custom.css";
 import  Product  from "./components/Product";
 import  AddProduct  from "./components/AddProduct";
 import  CartDescription  from "./components/CartDesctiption";
+import LogIn from './components/Login';
+import { Container } from "reactstrap";
+import SignUp from "./components/SignIn";
 
 const App = () =>{
 
     return (
-      <Layout>
+      <Container>
+      <Route path='/login' component={LogIn} />
+      <Route path='/signup' component={SignUp} />
         <Route exact path="/">
-          <Home isAuth={true}/>
+          <Layout children={Home} />
         </Route>
         <AuthorizeRoute path="/fetch-data" component={FetchData} />
         <Route
           path={ApplicationPaths.ApiAuthorizationPrefix}
           component={ApiAuthorizationRoutes}
         />
+
         <Route path="/test" component={CartDescription}/>
-      </Layout>
+      </Container>
     );
   }
 export default App;
