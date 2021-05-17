@@ -10,7 +10,7 @@ import { ApplicationPaths } from "./components/api-authorization/ApiAuthorizatio
 import "./custom.css";
 import  Product  from "./components/Product";
 import  AddProduct  from "./components/AddProduct";
-import  CartDescription  from "./components/CartDesctiption";
+import  CartDescription  from "./components/CartDescription";
 import LogIn from './components/Login';
 import { Container } from "reactstrap";
 import SignUp from "./components/SignIn";
@@ -21,16 +21,17 @@ const App = () =>{
       <Container>
       <Route path='/login' component={LogIn} />
       <Route path='/signup' component={SignUp} />
-        <Route exact path="/">
-          <Layout children={Home} />
-        </Route>
-        <AuthorizeRoute path="/fetch-data" component={FetchData} />
-        <Route
+          <Layout>
+          <Route exact path='/' component={Home} />
+          <Route path='/cartdesc' component={CartDescription}/> 
+          <Route path='/addproduct' component={AddProduct}/>
+          </Layout>
+      <AuthorizeRoute path="/fetch-data" component={FetchData} />
+      <Route
           path={ApplicationPaths.ApiAuthorizationPrefix}
           component={ApiAuthorizationRoutes}
-        />
-
-        <Route path="/test" component={CartDescription}/>
+      />
+      <Route path="/test" component={CartDescription}/>
       </Container>
     );
   }

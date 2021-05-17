@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 import { LoginMenu } from './api-authorization/LoginMenu';
-import "./Product.css";
+import "./CartDescription.css";
 import { ApplicationPaths } from './api-authorization/ApiAuthorizationConstants';
 import {
     Collapse, Card, CardImg, CardText, CardBody,
@@ -10,7 +10,7 @@ import image from "../Data/318x180.svg"
 
 const Product = () => {
 
-    const [name,setName] = useState("Название продуката");
+    const [name,setName] = useState("Название продукта");
     const [mediumCost,setMediumCost] = useState(0);
     const [isOpen,setIsOpen] = useState(false);
     const [shops,setShops] = useState([]);

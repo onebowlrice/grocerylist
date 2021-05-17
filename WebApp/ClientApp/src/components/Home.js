@@ -1,23 +1,33 @@
 import React, { Component } from 'react';
 import "./Home.css";
 import { ApplicationPaths } from './api-authorization/ApiAuthorizationConstants';
-import { Card, CardImg, CardBody, CardTitle } from 'reactstrap'
-import user from '../Data/user.svg'
-import cart from '../Data/cart.svg'
+import { Card, CardImg, CardBody, CardTitle } from 'reactstrap';
+import user from '../Data/user.svg';
+import cart from '../Data/cart.svg';
+import ListElement from './ListElement';
+import { useHistory } from 'react-router';
 
 const Home = () => {
+  const history = useHistory();
 
   if (true)
     return (
       <div className="main">
-        <a href={ApplicationPaths.Cart}>
+        <div className='listContainer'>
+          <span className='listName'>Список корзин</span>
+          <ListElement name={'Название корзины'} mediumCost={'Средняя цена'}/>
+          <ListElement name={'Пример корзины 1'} mediumCost={'Цена 1'}/>
+          <ListElement name={'Пример корзины 2'} mediumCost={'Цена 2'}/>
+          <div className='element' onClick={() => history.push('/cartdesc')}>Создать новую корзину</div>
+        </div>
+        {/* <a href={ApplicationPaths.Cart}>
           <Card>
             <CardImg top width="100%" src={cart} alt="Card image cap" />
             <CardBody>
               <CardTitle tag="h5">Создать корзину</CardTitle>
             </CardBody>
           </Card>
-        </a>
+        </a> */}
       </div>
     );
     else return (
