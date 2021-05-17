@@ -16,13 +16,15 @@ namespace WebApp.Repositories
             _context = context;
         }
         
-        public Basket Insert(Basket basket)
+        public Basket Insert(Basket basket, string userId)
         {
             if (_context.Baskets.FirstOrDefault(b => b.Name.Equals(basket.Name)) is not null)
                 return null;
             _context.Baskets.Add(basket);
             _context.SaveChanges();
-            return _context.Baskets.FirstOrDefault(b => b.Name.Equals(basket.Name));
+            basket = _context.Baskets.FirstOrDefault(b => b.Name.Equals(basket.Name));
+            _context.BasketsAndUsers.Add(new BasketAndUser() {BasketId = basket.Id, UserId = userId});
+            return basket;
         }
 
         public Basket GetBasketById(int id)
@@ -45,6 +47,17 @@ namespace WebApp.Repositories
             _context.BasketsAndProducts.Add(new BasketAndProduct()
                 {BasketId = id, MeasureId = measureId, Count = count, ProductId = productId});
             _context.SaveChanges();
+        }
+
+        public List<Basket> GetBasketsOfUser(string idUser)
+        {
+            var basketIds = _context.BasketsAndUsers
+                .Where(bau => bau.UserId.Equals(idUser))
+                .Select(b => b.BasketId)
+                .ToList();
+            return _context.Baskets
+                .Where(b => basketIds.Contains(b.Id))
+                .ToList();
         }
     }
 }

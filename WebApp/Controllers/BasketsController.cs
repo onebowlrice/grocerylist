@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using IdentityServer4.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.Data;
 using WebApp.Models;
@@ -27,7 +28,8 @@ namespace WebApp.Controllers
         [HttpPost]
         public Basket Insert([FromQuery] string basketName)
         {
-            return _repository.Insert(new Basket() {Name = basketName});
+            return !User.Identity.IsAuthenticated ? null : 
+                _repository.Insert(new Basket() {Name = basketName}, User.Identity.GetSubjectId());
         }
         
         [HttpGet]
@@ -43,6 +45,13 @@ namespace WebApp.Controllers
         {
             _repository.AddProduct(productInBasket.ProductId, productInBasket.MeasureId, productInBasket.Count,
                 basketId);
+        }
+        
+        [HttpGet]
+        [Route("CurrentUser")]
+        public List<Basket> GetBaskets()
+        {
+            return _repository.GetBasketsOfUser(User.Identity.GetSubjectId());
         }
     }
 }
