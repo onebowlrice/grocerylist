@@ -7,10 +7,14 @@ import cart from '../Data/cart.svg'
 import Product from './Product';
 import { useHistory } from 'react-router';
 
-const CartDescription = () =>{
+const CartDescription = (props) =>{
 const history = useHistory();
 const [cartName,setCartName] = useState("Название корзины"); 
-
+const [cart,setCart] = useState([]);
+const addCart = (e) => {
+    
+    props.location.push.setList([]);
+}
         return (
             <div className='cartMain'>
             <div className="info">
@@ -20,21 +24,21 @@ const [cartName,setCartName] = useState("Название корзины");
                     <CardBody>
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Общая средняя стоимость </CardSubtitle>
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Максимальное кол-во товаров в одном магаине</CardSubtitle>
-                        <Button type="button" class="btn btn-primary">Сохранить</Button>
+                        <Button type="button" class="btn btn-primary" onClick={addCart}>Сохранить</Button>
                         <Button type="button" class="btn btn-primary">Расчитать</Button>
                         <Button type="button" class="btn btn-primary">Поделиться</Button>
                     </CardBody>
                 </Card>
             </div>
             <div className='cardsField'>
+                <Product setCart={setCart} cart={cart}/>
                 <Product />
                 <Product />
                 <Product />
                 <Product />
                 <Product />
                 <Product />
-                <Product />
-                <div className='product' onClick={() => history.push('/addproduct')}>
+                <div className='product' onClick={() => history.push({pathname: '/addproduct', state: {cart: cart}, push:{setCart}})}>
                     <span>Плюс</span><br/>
                     <span>Добавить товар</span>
                 </div>

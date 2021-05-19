@@ -8,15 +8,17 @@ import {
 } from 'reactstrap';
 import image from "../Data/318x180.svg"
 
-const Product = () => {
+const Product = ({cart,setCart}) => {
 
     const [name,setName] = useState("Название продукта");
     const [mediumCost,setMediumCost] = useState(0);
     const [isOpen,setIsOpen] = useState(false);
     const [shops,setShops] = useState([]);
 
-        const toggle = () => setIsOpen(!isOpen);
-
+    const toggle = () => setIsOpen(!isOpen);
+    const removeProduct = (e) => {
+        setCart(cart.filter(prod => prod.id !== e.id))
+    }
         return (
             <div className="product">
                 <Card>
@@ -25,6 +27,7 @@ const Product = () => {
                         <CardTitle tag="h5">{name}</CardTitle>
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Средняя цена {mediumCost}</CardSubtitle>
                         <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>Подробнее</Button>
+                        <Button color="danger" onClick={removeProduct}>x</Button>
                         <Collapse isOpen={isOpen}>
                             <Card>
                                 <p>Список магазинов:</p>

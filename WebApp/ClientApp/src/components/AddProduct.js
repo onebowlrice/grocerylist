@@ -7,9 +7,13 @@ import {
     CardTitle, CardSubtitle, Button, FormGroup, Label, Input
 } from 'reactstrap';
 
-const AddProduct = () => {
+const AddProduct = (props) => {
     const [name,setName] = useState("Название");
     const [shops,setShops] = useState([]);
+
+    const addProd = () =>{
+        
+    }
         return (
             <div>
                 <FormGroup>
@@ -22,7 +26,7 @@ const AddProduct = () => {
                 </svg>
                 <p>Магазины</p>
                 {shops.map(shop => <p>{shop}</p>)}
-                <Button type="button" class="btn btn-primary">Добавить</Button>
+                <Button type="button" class="btn btn-primary" onClick={addProd}>Добавить</Button>
             </div>
         )
     }

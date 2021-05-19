@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import "./Home.css";
 import { ApplicationPaths } from './api-authorization/ApiAuthorizationConstants';
 import { Card, CardImg, CardBody, CardTitle } from 'reactstrap';
@@ -9,16 +9,15 @@ import { useHistory } from 'react-router';
 
 const Home = () => {
   const history = useHistory();
+  const [list,setList] = useState([]);
 
   if (true)
     return (
       <div className="main">
         <div className='listContainer'>
           <span className='listName'>Список корзин</span>
-          <ListElement name={'Название корзины'} mediumCost={'Средняя цена'}/>
-          <ListElement name={'Пример корзины 1'} mediumCost={'Цена 1'}/>
-          <ListElement name={'Пример корзины 2'} mediumCost={'Цена 2'}/>
-          <div className='element' onClick={() => history.push('/cartdesc')}>Создать новую корзину</div>
+          {list.map(e => (<ListElement name={e.eName} mediumCost={e.mediumCost} />))}
+          <div className='element' onClick={() => history.push({pathname: '/cartdesc', state: {list: list}, push:{setList: setList}})}>Создать новую корзину</div>
         </div>
         {/* <a href={ApplicationPaths.Cart}>
           <Card>

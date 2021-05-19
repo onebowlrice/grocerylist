@@ -21,11 +21,11 @@ const App = () =>{
       <Container>
       <Route path='/login' component={LogIn} />
       <Route path='/signup' component={SignUp} />
-          <Layout>
+      {true && <Layout>
           <Route exact path='/' component={Home} />
           <Route path='/cartdesc' component={CartDescription}/> 
           <Route path='/addproduct' component={AddProduct}/>
-          </Layout>
+      </Layout>}
       <AuthorizeRoute path="/fetch-data" component={FetchData} />
       <Route
           path={ApplicationPaths.ApiAuthorizationPrefix}
