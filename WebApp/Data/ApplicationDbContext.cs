@@ -12,7 +12,6 @@ namespace WebApp.Data
 {
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
-        public DbSet<User> Users { get; set; }
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<Measure> Measures { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -35,7 +34,6 @@ namespace WebApp.Data
         {
             var classes = new List<Type>()
             {
-                typeof(User),
                 typeof(Basket),
                 typeof(Measure),
                 typeof(Product),
