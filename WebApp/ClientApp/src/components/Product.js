@@ -8,39 +8,29 @@ import {
 } from 'reactstrap';
 import image from "../Data/318x180.svg"
 
-const Product = () => {
+const Product = (props) => {
 
-    const [name,setName] = useState("Название продукта");
-    const [mediumCost,setMediumCost] = useState(0);
-    const [isOpen,setIsOpen] = useState(false);
-    const [shops,setShops] = useState([]);
+    const [costState,setCostState] = useState(0);
     const [productState, setProductState] = useState([]);
+    const [measureState, setMeasureState] = useState("");
 
     useEffect(() => {
-        fetch('/Products?productID=1').then(res => res.json()).then(res => {
+        fetch(`/Products?productID=${props.id}`).then(res => res.json()).then(res => {
             setProductState(res);
-        })
+        });
+        fetch (`/Measures?measureId=${props.measureId}`).then(res => res.json()).then(res => {
+            setMeasureState(res);
+        });
     },[]);
-
-
-        const toggle = () => setIsOpen(!isOpen);
 
         return (
             <div className="product">
                 <Card>
-                    <CardImg top width="10%" src={image} alt="Card image cap" />
+                    <CardImg top width="10%" src={productState.imgSource} alt="Card image cap" />
                     <CardBody>
-                        <CardTitle tag="h5">{name}</CardTitle>
-                        <CardSubtitle tag="h6" className="mb-2 text-muted">Средняя цена {mediumCost}</CardSubtitle>
-                        <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>Подробнее</Button>
-                        <Collapse isOpen={isOpen}>
-                            <Card>
-                                <p>Список магазинов:</p>
-                                {shops.map(x => <p>{x}</p>)}
-                                {productState.id}
-                                {productState.name}
-                            </Card>
-                        </Collapse>
+                        <CardTitle tag="h5">{productState.name}</CardTitle>
+                        <CardSubtitle tag="h6" className="mb-2 text-muted">Стоимость {costState}</CardSubtitle>
+                        <CardSubtitle tag="h6" className="mb-2 text-muted">Количество {props.count} {measureState.name}</CardSubtitle>
                     </CardBody>
                 </Card>
             </div>

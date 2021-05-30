@@ -20,7 +20,7 @@ namespace WebApp.Controllers
             new ProductInBasket {ProductId = 1, MeasureId = 1, Count = 2},
             new ProductInBasket {ProductId = 2, MeasureId = 1, Count = 1},
             new ProductInBasket {ProductId = 3, MeasureId = 2, Count = 500},
-            new ProductInBasket {ProductId = 3, MeasureId = 2, Count = 300}
+            new ProductInBasket {ProductId = 4, MeasureId = 2, Count = 300}
         };
         
         public BasketsController(ApplicationDbContext context)

@@ -16,9 +16,9 @@ namespace WebApp.Controllers
         private List<Product> _products = new()
         {
             new Product { Id = 1, Name = "Молоко Ирбитское", ImgSource = "https://bit.ly/2SB5Tsu", SectionId = 1, SubsectionId = 1 },
-            new Product { Id = 1, Name = "Сырок Б.Ю.Александров", ImgSource = "https://bit.ly/3cmx1mf", SectionId = 1, SubsectionId = 3 },
-            new Product { Id = 1, Name = "Сыр Российский Ирбитский", ImgSource = "https://bit.ly/3fS5hH2", SectionId = 1, SubsectionId = 2 },
-            new Product { Id = 1, Name = "Творог Талицкий", ImgSource = "https://bit.ly/2RZflpv", SectionId = 1, SubsectionId = 1 }
+            new Product { Id = 2, Name = "Сырок Б.Ю.Александров", ImgSource = "https://bit.ly/3cmx1mf", SectionId = 1, SubsectionId = 3 },
+            new Product { Id = 3, Name = "Сыр Российский Ирбитский", ImgSource = "https://bit.ly/3fS5hH2", SectionId = 1, SubsectionId = 2 },
+            new Product { Id = 4, Name = "Творог Талицкий", ImgSource = "https://bit.ly/2RZflpv", SectionId = 1, SubsectionId = 1 }
         };
         
         public ProductsController(ApplicationDbContext context)

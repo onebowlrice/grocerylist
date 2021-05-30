@@ -6,11 +6,13 @@ import user from '../Data/user.svg';
 import cart from '../Data/cart.svg';
 import ListElement from './ListElement';
 import { useHistory } from 'react-router';
+import authService from "./api-authorization/AuthorizeService";
+
 
 const Home = () => {
   const history = useHistory();
 
-  if (true)
+  if (authService.isAuthenticated())
     return (
       <div className="main">
         <div className='listContainer'>

@@ -14,6 +14,7 @@ import  CartDescription  from "./components/CartDescription";
 import LogIn from './components/Login';
 import { Container } from "reactstrap";
 import SignUp from "./components/SignIn";
+import ChooseProduct from "./components/ChooseProduct";
 
 const App = () =>{
 
@@ -25,13 +26,13 @@ const App = () =>{
           <Route exact path='/' component={Home} />
           <Route path='/cartdesc' component={CartDescription}/> 
           <Route path='/addproduct' component={AddProduct}/>
+              <Route path='/chooseProduct' component={ChooseProduct}/>
           </Layout>
       <AuthorizeRoute path="/fetch-data" component={FetchData} />
       <Route
           path={ApplicationPaths.ApiAuthorizationPrefix}
           component={ApiAuthorizationRoutes}
       />
-      <Route path="/test" component={CartDescription}/>
       </Container>
     );
   }
