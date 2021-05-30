@@ -13,7 +13,7 @@ const AddProduct = () => {
 
         return (
             <div>
-                <p>Добавление продукта</p>
+                <h3>Добавление продукта</h3>
                 <FormGroup>
                     <Label for="name">Название</Label>
                     <Input type="text" name="name" id="name" placeholder="Название продукта" />
