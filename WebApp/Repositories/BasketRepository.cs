@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using WebApp.Data;
 using WebApp.Models;
 using WebApp.Models.Components;
@@ -11,9 +14,9 @@ namespace WebApp.Repositories
     {
         private readonly ApplicationDbContext _context;
         
-        public BasketRepository(ApplicationDbContext context)
+        public BasketRepository(IServiceScopeFactory scopeFactory)
         {
-            _context = context;
+            _context = scopeFactory.CreateScope().ServiceProvider.GetRequiredService<ApplicationDbContext>();
         }
         
         public Basket Insert(Basket basket, string userId)

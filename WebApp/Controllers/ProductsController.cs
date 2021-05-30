@@ -12,9 +12,9 @@ namespace WebApp.Controllers
     {
         private readonly IProductRepository _repository;
         
-        public ProductsController(ApplicationDbContext context)
+        public ProductsController(IProductRepository repository)
         {
-            _repository = new ProductRepository(context);
+            _repository = repository;
         }
 
         [HttpGet]

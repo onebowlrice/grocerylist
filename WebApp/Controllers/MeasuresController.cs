@@ -12,9 +12,9 @@ namespace WebApp.Controllers
     {
         private readonly IMeasureRepository _repository;
 
-        public MeasuresController(ApplicationDbContext context)
+        public MeasuresController(IMeasureRepository repository)
         {
-            _repository = new MeasureRepository(context);
+            _repository = repository;
         }
 
         [HttpGet]

@@ -5,18 +5,20 @@ using WebApp.Data;
 using WebApp.Models;
 using WebApp.Models.Components;
 using WebApp.Repositories;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class BasketsController : Controller
     {
         private readonly IBasketRepository _repository;
         
-        public BasketsController(ApplicationDbContext context)
+        public BasketsController(IBasketRepository repository)
         {
-            _repository = new BasketRepository(context);
+            _repository = repository;
         }
         
         [HttpGet]
@@ -28,7 +30,7 @@ namespace WebApp.Controllers
         [HttpPost]
         public Basket Insert([FromQuery] string basketName)
         {
-            return !User.Identity.IsAuthenticated ? null : 
+            return User.Identity != null && !User.Identity.IsAuthenticated ? null : 
                 _repository.Insert(new Basket() {Name = basketName}, User.Identity.GetSubjectId());
         }
         
