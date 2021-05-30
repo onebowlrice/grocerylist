@@ -37,10 +37,7 @@ const CartDescription = () => {
             </div>
             <div className='cardsField'>
                 {basketState.map(x => <Product id={x.productId} measureId={x.measureId} count={x.count}/>)}
-                <div className='product' onClick={() => history.push('/chooseProduct')}>
-                    <span>Плюс</span><br/>
-                    <span>Добавить товар</span>
-                </div>
+                <Button className='product' onClick={() => history.push('/chooseProduct')}>Добавить товар</Button>
             </div>
         </div>
     );

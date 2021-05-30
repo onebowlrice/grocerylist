@@ -25,7 +25,7 @@ const App = () => {
             <Layout>
                 <AuthorizeRoute exact path='/' component={Home}/>
                 <AuthorizeRoute path='/cartdesc' component={CartDescription}/>
-                <AuthorizeRoute path='/addproduct' component={AddProduct}/>
+                <AuthorizeRoute path='/addProduct' component={AddProduct}/>
                 <AuthorizeRoute path='/chooseProduct' component={ChooseProduct}/>
             </Layout>
             <AuthorizeRoute path="/fetch-data" component={FetchData}/>
