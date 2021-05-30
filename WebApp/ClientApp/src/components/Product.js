@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, {Component, useEffect, useState} from 'react';
 import { LoginMenu } from './api-authorization/LoginMenu';
 import "./CartDescription.css";
 import { ApplicationPaths } from './api-authorization/ApiAuthorizationConstants';
@@ -14,6 +14,14 @@ const Product = () => {
     const [mediumCost,setMediumCost] = useState(0);
     const [isOpen,setIsOpen] = useState(false);
     const [shops,setShops] = useState([]);
+    const [productState, setProductState] = useState([]);
+
+    useEffect(() => {
+        fetch('/Products?productID=1').then(res => res.json()).then(res => {
+            setProductState(res);
+        })
+    },[]);
+
 
         const toggle = () => setIsOpen(!isOpen);
 
@@ -29,6 +37,8 @@ const Product = () => {
                             <Card>
                                 <p>Список магазинов:</p>
                                 {shops.map(x => <p>{x}</p>)}
+                                {productState.id}
+                                {productState.name}
                             </Card>
                         </Collapse>
                     </CardBody>

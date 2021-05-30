@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, {Component, useEffect, useState} from 'react';
 import { LoginMenu } from './api-authorization/LoginMenu';
 import "./CartDescription.css";
 import { ApplicationPaths } from './api-authorization/ApiAuthorizationConstants';
@@ -8,8 +8,11 @@ import Product from './Product';
 import { useHistory } from 'react-router';
 
 const CartDescription = () =>{
-const history = useHistory();
-const [cartName,setCartName] = useState("Название корзины"); 
+    const history = useHistory();
+    const [cartName,setCartName] = useState("Название корзины");
+    const [basketState, setBasketState] = useState([]);
+
+
 
         return (
             <div className='cartMain'>
@@ -28,12 +31,7 @@ const [cartName,setCartName] = useState("Название корзины");
             </div>
             <div className='cardsField'>
                 <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
+                // {basketState.map(x => <Product id={x.productId} measure={x.measureId} count={x.count}/>)}
                 <div className='product' onClick={() => history.push('/addproduct')}>
                     <span>Плюс</span><br/>
                     <span>Добавить товар</span>
