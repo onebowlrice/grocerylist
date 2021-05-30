@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WebApp.Models.Links
+﻿namespace WebApp.Models.Links
 {
     public class BasketAndProduct
     {

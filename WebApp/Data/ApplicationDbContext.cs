@@ -21,7 +21,6 @@ namespace WebApp.Data
         public DbSet<BasketAndProduct> BasketsAndProducts { get; set; }
         public DbSet<BasketAndUser> BasketsAndUsers { get; set; }
         public DbSet<SectionAndSubsection> SectionsAndSubsections { get; set; }
-        public DbSet<ShopAndProduct> ShopsAndProducts { get; set; }
         
         
         public ApplicationDbContext(
@@ -42,7 +41,6 @@ namespace WebApp.Data
                 typeof(BasketAndProduct),
                 typeof(BasketAndUser),
                 typeof(SectionAndSubsection),
-                typeof(ShopAndProduct),
             };
             
             foreach (var name in classes)

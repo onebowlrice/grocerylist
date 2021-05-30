@@ -9,5 +9,6 @@ namespace WebApp.Models.Components
         public string ImgSource { get; set; }
         public int SectionId { get; set; }
         public int SubsectionId { get; set; }
+        public int Price { get; set; }
     }
 }
