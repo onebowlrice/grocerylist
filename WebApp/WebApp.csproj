@@ -26,7 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
     <None Update="Certificates\cert.pfx" CopyToOutputDirectory="Always" />
   </ItemGroup>
   <ItemGroup>
