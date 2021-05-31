@@ -4,6 +4,11 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.logo{
+  width: 40px;
+  height: 40px;
+}
+
 html {
   font-size: 14px;
 }
