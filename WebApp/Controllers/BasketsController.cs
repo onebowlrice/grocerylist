@@ -15,16 +15,7 @@ namespace WebApp.Controllers
     public class BasketsController : Controller
     {
         private readonly IBasketRepository _repository;
-        private Basket _basket = new() {Id = 1, Name = "Молочка"};
 
-        private List<ProductInBasket> _products = new()
-        {
-            new ProductInBasket {ProductId = 1, MeasureId = 1, Count = 2},
-            new ProductInBasket {ProductId = 2, MeasureId = 1, Count = 1},
-            new ProductInBasket {ProductId = 3, MeasureId = 2, Count = 500},
-            new ProductInBasket {ProductId = 4, MeasureId = 2, Count = 300}
-        };
-        
         public BasketsController(IBasketRepository repository)
         {
             _repository = repository;
@@ -33,8 +24,7 @@ namespace WebApp.Controllers
         [HttpGet]
         public Basket GetById([FromQuery] int basketId)
         {
-            return _basket;
-            //return _repository.GetBasketById(basketId);
+            return _repository.GetBasketById(basketId);
         }
 
         [HttpPost]
@@ -48,8 +38,7 @@ namespace WebApp.Controllers
         [Route("Products")]
         public List<ProductInBasket> GetProducts([FromQuery] int basketId)
         {
-            return _products;
-            //return _repository.GetProductsByBasketId(basketId);
+            return _repository.GetProductsByBasketId(basketId);
         }
 
         [HttpPost]
@@ -64,11 +53,7 @@ namespace WebApp.Controllers
         [Route("CurrentUser")]
         public List<Basket> GetBaskets()
         {
-            return new()
-            {
-                _basket
-            };
-            //return _repository.GetBasketsOfUser(User.Identity.GetSubjectId());
+            return _repository.GetBasketsOfUser(User.Identity.GetSubjectId());
         }
     }
 }
