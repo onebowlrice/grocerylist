@@ -1,4 +1,4 @@
-import React, {Component, useEffect, useState} from 'react';
+import React, {Component, useEffect, useState, PropTypes} from 'react';
 import { LoginMenu } from './api-authorization/LoginMenu';
 import "./CartDescription.css";
 import { ApplicationPaths } from './api-authorization/ApiAuthorizationConstants';
@@ -21,6 +21,10 @@ const Product = (props) => {
         });
     },[]);
 
+    // const handleClick = () => {
+    //     props.changeBasketState(s => [...s, {productId: props.id, measureId: props.measureId, count: props.count}])
+    // }
+
         return (
             <div className="product">
                 <Card>
@@ -30,7 +34,7 @@ const Product = (props) => {
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Стоимость {productState.price}</CardSubtitle>
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Количество {props.count} {measureState.name}</CardSubtitle>
                     </CardBody>
-                    {props.withButton && <Button>Добавить</Button>}
+                    {props.withButton && <Button >Добавить</Button>}
                 </Card>
             </div>
         )
