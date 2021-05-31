@@ -10,12 +10,11 @@ namespace WebApp.Controllers
     [Route("[controller]")]
     public class SectionsController : Controller
     {
-        // GET
         private readonly ISectionRepository _repository;
         
-        public SectionsController(ApplicationDbContext context)
+        public SectionsController(ISectionRepository repository)
         {
-            _repository = new SectionRepository(context);
+            _repository = repository;
         }
 
         [HttpGet]

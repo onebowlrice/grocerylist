@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Extensions.DependencyInjection;
 using WebApp.Data;
 using WebApp.Models.Components;
 using WebApp.Models.Links;
@@ -10,9 +11,9 @@ namespace WebApp.Repositories
     {
         private readonly ApplicationDbContext _context;
 
-        public SectionRepository(ApplicationDbContext context)
+        public SectionRepository(IServiceScopeFactory scopeFactory)
         {
-            _context = context;
+            _context = scopeFactory.CreateScope().ServiceProvider.GetRequiredService<ApplicationDbContext>();
         }
 
 

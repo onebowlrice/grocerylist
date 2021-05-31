@@ -12,9 +12,9 @@ namespace WebApp.Controllers
     {
         private readonly IProductRepository _repository;
         
-        public ProductsController(ApplicationDbContext context)
+        public ProductsController(IProductRepository repository)
         {
-            _repository = new ProductRepository(context);
+            _repository = repository;
         }
 
         [HttpGet]
@@ -34,11 +34,15 @@ namespace WebApp.Controllers
         public Product InsertProduct(
             [FromQuery] string productName,
             [FromQuery] string imgSource,
+            [FromQuery] int price,
             [FromQuery] int sectionId = -1,
             [FromQuery] int subSectionId = -1)
         {
             return _repository.InsertProduct(new Product()
-                {Name = productName, ImgSource = imgSource, SectionId = sectionId, SubsectionId = subSectionId});
+            {
+                Name = productName, ImgSource = imgSource, Price = price, SectionId = sectionId,
+                SubsectionId = subSectionId
+            });
         }
     }
 }

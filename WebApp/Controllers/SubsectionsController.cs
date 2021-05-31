@@ -11,9 +11,9 @@ namespace WebApp.Controllers
     {
         private readonly ISubsectionRepository _repository;
 
-        public SubsectionsController(ApplicationDbContext context)
+        public SubsectionsController(ISubsectionRepository repository)
         {
-            _repository = new SubsectionRepository(context);
+            _repository = repository;
         }
 
         [HttpGet]
