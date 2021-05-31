@@ -9,8 +9,6 @@ import {
 import image from "../Data/318x180.svg"
 
 const Product = (props) => {
-
-    const [costState,setCostState] = useState(0);
     const [productState, setProductState] = useState([]);
     const [measureState, setMeasureState] = useState("");
 
@@ -29,9 +27,10 @@ const Product = (props) => {
                     <CardImg top width="10%" src={productState.imgSource} alt="Card image cap" />
                     <CardBody>
                         <CardTitle tag="h5">{productState.name}</CardTitle>
-                        <CardSubtitle tag="h6" className="mb-2 text-muted">Стоимость {costState}</CardSubtitle>
+                        <CardSubtitle tag="h6" className="mb-2 text-muted">Стоимость {productState.price}</CardSubtitle>
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Количество {props.count} {measureState.name}</CardSubtitle>
                     </CardBody>
+                    {props.withButton && <Button>Добавить</Button>}
                 </Card>
             </div>
         )

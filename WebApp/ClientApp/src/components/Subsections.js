@@ -43,7 +43,7 @@ const Subsections = (props) =>{
                             {props.products
                                 .filter(p => p.sectionId === props.id && p.subsectionId === x.id)
                                 .map(g =>
-                                <Product id={g.id} />
+                                <Product id={g.id} withButton={true}/>
                             )}
                         </Row>
                     </TabPane>

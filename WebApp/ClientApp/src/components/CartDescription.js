@@ -36,7 +36,7 @@ const CartDescription = () => {
                 </Card>
             </div>
             <div className='cardsField'>
-                {basketState.map(x => <Product id={x.productId} measureId={x.measureId} count={x.count}/>)}
+                {basketState.map(x => <Product id={x.productId} measureId={x.measureId} count={x.count} withButton={false}/>)}
                 <Button className='product' onClick={() => history.push('/chooseProduct')}>Добавить товар</Button>
             </div>
         </div>
